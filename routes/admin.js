@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
-const Course = require('../models/Course');
+const Course = require('../models/Cours');
 const Lessons = require('../models/Lesson');
 const Quizs = require('../models/Quiz');
 
