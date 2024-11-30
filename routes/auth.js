@@ -19,7 +19,7 @@ router.post('/login', passport.authenticate('local', {
     return res.redirect('/admin/dashboard');
   } else {
     // Otherwise, redirect to the regular user dashboard or homepage
-    return res.redirect('/dashboard');
+    return res.redirect('/home');
   }
 });
 

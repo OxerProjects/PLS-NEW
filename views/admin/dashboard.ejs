@@ -23,3 +23,33 @@
     </li>
   <% }); %>
 </ul>
+
+<h2>Manage Courses</h2>
+<h3>Courses</h3>
+<a href="/admin/add-course">Add Course</a>
+  <ul>
+    <% courses.forEach(cours => { %>
+      <li>
+        <a><%= cours.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+<h3>Lessons</h3>
+<a href="/admin/add-lesson">Add Lesson</a>
+  <ul>
+    <% lessons.forEach(lesson => { %>
+      <li>
+        <a><%= lesson.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+<h3>Quizs</h3>
+<a href="/admin/add-quiz">Add Quiz</a>
+  <ul>
+    <% quizs.forEach(quiz => { %>
+      <li>
+        <a><%= quiz.quizText %></a>
+      </li>
+    <% }); %>
+  </ul>
+
