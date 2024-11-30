@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { ensureAuthenticated, ensureAdmin } = require('../config/auth'); // Updated path
 
