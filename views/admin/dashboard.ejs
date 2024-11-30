@@ -3,12 +3,7 @@
 <a href="/logout">Logout</a>
 
 <h2>Manage Users</h2>
-<form action="/admin/add-user" method="POST">
-  <input type="text" name="username" placeholder="Username" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <input type="checkbox" name="isAdmin">
-  <button type="submit">Add User</button>
-</form>
+<a href="/admin/add-user">Add New User</a>
 
 <ul>
   <% users.forEach(user => { %>

@@ -1,2 +1,8 @@
 <h1>Welcome, <%= user.username %>!</h1>
+<h2>Your Courses</h2>
+<ul>
+    <% user.courses.forEach(function(course) { %>
+      <li><a href="/courses/<%= course.id %>"><%= course.title %></a></li>
+    <% }); %>
+  </ul>
 <a href="/logout">Logout</a>

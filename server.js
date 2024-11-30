@@ -13,6 +13,10 @@ const { ensureAuthenticated, ensureAdmin } = require('./config/auth'); // Update
 
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
+const coursesRoutes  = require('./routes/courses');
+
+const User = require('./models/User');
+const Cours = require('./models/Cours');
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -59,11 +63,20 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/', authRoutes);
-app.use('/admin', adminRoutes);
+app.use('/courses', ensureAuthenticated , coursesRoutes);
+app.use('/admin', ensureAuthenticated, ensureAdmin , adminRoutes);
 
 // Protected Route
-app.get('/dashboard', ensureAuthenticated, (req, res) => {
-  res.render('dashboard', { user: req.user });
+app.get('/home', ensureAuthenticated, async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id)
+      .populate('courses');
+
+    res.render('home', { user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching user data');
+  }
 });
 
 // Start Server

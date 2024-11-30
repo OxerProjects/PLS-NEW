@@ -20,12 +20,22 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
   res.render('admin/dashboard', { admin: req.user, users, courses, lessons, quizs });
 });
 
+router.get('/add-user',async (req, res) => {
+  const courses = await Course.find();
+  res.render('admin/user/add-user', { courses });
+});
+
 // Add User
 router.post('/add-user', ensureAuthenticated, ensureAdmin, async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, courseId, isAdmin } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, password: hashedPassword});
+    const newUser = new User(
+      { username,
+        password: hashedPassword,
+        courses: courseId || [], 
+        isAdmin
+      });
     await newUser.save();
     req.flash('success_msg', 'User added successfully');
     res.redirect('/admin/dashboard');

@@ -1,0 +1,17 @@
+<h2>Manage Users</h2>
+<form action="/admin/add-user" method="POST">
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="password" name="password" placeholder="Password" required>
+
+  <label for="course">Assign Course:</label>
+  <select name="courseId" style="width: 100px;" required multiple>
+    <% courses.forEach(function(course) { %>
+      <option value="<%= course.id %>"><%= course.title %></option>
+    <% }); %>
+  </select>
+
+  <label for="isAdmin">Admin:</label>
+  <input type="checkbox" name="isAdmin">
+  
+  <button type="submit">Add User</button>
+</form>
