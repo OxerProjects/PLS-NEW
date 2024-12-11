@@ -18,24 +18,23 @@ router.get('/:courseId' , ensureAuthenticated ,async (req, res) => {
     }
 });
 
-router.get('/:courseId/lesson/:lessonId', ensureAuthenticated, async (req, res) => {
-  const { courseId, lessonId } = req.params;
+router.get('/:courseId/lesson/:lessonId/:lessonNum', ensureAuthenticated, async (req, res) => {
+  const { courseId, lessonId, lessonNum } = req.params;
   
   try {
+    const courseOrg = await Course.findById(courseId) 
     const course = await Course.findById(courseId).populate('lessons'); 
     const lesson = course.lessons.find(lesson => lesson._id.toString() === lessonId);
     
     if (!lesson) {
       return res.status(404).send('Lesson not found');
     } 
-    res.render('courses/lesson', { lesson });
+    res.render('courses/lesson', {lessonNum: parseInt(lessonNum) ,course: courseOrg , lesson });
   } catch (err) {
     console.error(err);
     res.status(500).send('Error fetching lesson data');
   }
 });
-
-
 
 module.exports = router;
 

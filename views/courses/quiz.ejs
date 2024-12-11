@@ -1,0 +1,10 @@
+<h1>Quiz for Lesson</h1>
+<form action="/courses/<%= courseId %>/lesson/<%= lessonId %>/<%= lessonNum %>/quiz" method="POST">
+<% quiz.questions.forEach(function(question) { %>
+  <p><%= question.text %></p>
+  <% question.answers.forEach(function(option) { %>
+    <input type="radio" name="question<%= question.id %>" value="<%= option %>"> <%= option %><br>
+  <% }); %>
+<% }); %>
+<button type="submit">Submit</button>
+</form>

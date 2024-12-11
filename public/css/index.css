@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(/images/Back.png);
+    background-size: contain;
+    background-position: 155px;
+}
+
+.Box {
+    text-align: center;
+}
+
+.mainTitle {
+    font-size: 60px;
+    font-weight: 1000;
+}
+
+.buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    font-family: var(--font-family);
+
+    border-radius: 15px;
+    background-color: var(--color-primary-dark);
+    font-family: var(--font-family);
+    border: 0;
+    color: white;
+    font-size: 20px;
+}
+
+#buy {
+    border: 1px solid var(--color-primary-dark);
+    background-color: white;
+    color: var(--color-primary-dark);
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(102%);
+    transition: all 0.5s ease-in;
+}

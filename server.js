@@ -8,6 +8,7 @@ const app = express();
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const path = require('path');
 const initializePassport = require('./config/passport');
 const { ensureAuthenticated, ensureAdmin } = require('./config/auth'); // Updated path
 
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
 mongoose
