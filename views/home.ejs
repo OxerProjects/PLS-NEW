@@ -1,10 +1,14 @@
 <link rel="stylesheet" href="css/home.css">
 
-<h1>ברוך שובך!, <%= user.username %>!</h1>
-<h2>Your Courses</h2>
-<ul>
-    <% user.courses.forEach(function(course) { %>
-      <li><a href="/courses/<%= course.id %>"><%= course.title %></a></li>
-    <% }); %>
-  </ul>
-<a href="/logout">Logout</a>
+
+<div class="body">
+  <h2>הקורסים שלך</h2>
+  <div class="Box">
+      <% user.courses.forEach(function(course) { %>
+        <div class="Item" onclick="window.location.href='/courses/<%= course.id %>'">
+          <img class="Image" src="/images/stock1.jpeg">
+          <a class="Title"><%= course.title %></a>
+        </div>
+      <% }); %>
+  </div>
+</div>

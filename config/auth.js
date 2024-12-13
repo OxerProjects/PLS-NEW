@@ -1,6 +1,6 @@
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) return next();
-    req.flash('error_msg', 'Please log in to view this resource');
+    req.flash('error_msg', 'התחבר כדי לצפות בתוכן');
     res.redirect('/login');
   }
   
@@ -8,7 +8,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated() && req.user.isAdmin) {
       return next();
     }
-    req.flash('error_msg', 'Access denied: Admins only');
+    req.flash('error_msg', 'גישה נדחתה: נדרשת גישת מנהל');
     res.redirect('/dashboard');
   }
   

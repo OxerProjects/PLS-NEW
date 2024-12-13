@@ -8,12 +8,6 @@ const { ensureAuthenticated, ensureAdmin } = require('../config/auth');
 
 const router = express.Router();
 
-// Middleware to set admin layout
-router.use((req, res, next) => {
-  res.locals.layout = 'layouts/adminLayout'; // Use admin layout for all admin routes
-  next();
-});
-
 // Admin Dashboard
 router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
   try {
@@ -33,7 +27,7 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
 router.get('/add-user', ensureAuthenticated, ensureAdmin, async (req, res) => {
   try {
     const courses = await Course.find();
-    res.render('admin/user/add-user', { courses });
+    res.render('admin/user/add-user', {admin: req.user, courses });
   } catch (err) {
     console.error('Error fetching courses:', err);
     req.flash('error_msg', 'Error loading add user page');
@@ -92,7 +86,7 @@ router.post('/delete-user/:id', ensureAuthenticated, ensureAdmin, async (req, re
 router.get('/add-course', ensureAuthenticated, ensureAdmin, async (req, res) => {
   try {
     const lessons = await Lesson.find();
-    res.render('admin/course/add-course', { lessons });
+    res.render('admin/course/add-course', {admin: req.user, lessons });
   } catch (err) {
     console.error('Error fetching lessons:', err);
     req.flash('error_msg', 'Error loading add course page');
@@ -122,7 +116,7 @@ router.post('/add-course', ensureAuthenticated, ensureAdmin, async (req, res) =>
 router.get('/add-lesson', ensureAuthenticated, ensureAdmin, async (req, res) => {
   try {
     const quizs = await Quiz.find();
-    res.render('admin/course/add-lesson', { quizs });
+    res.render('admin/course/add-lesson', {admin: req.user, quizs });
   } catch (err) {
     console.error('Error fetching quizzes:', err);
     req.flash('error_msg', 'Error loading add lesson page');
@@ -150,7 +144,7 @@ router.post('/add-lesson', ensureAuthenticated, ensureAdmin, async (req, res) =>
 
 // Add Quiz
 router.get('/add-quiz', ensureAuthenticated, ensureAdmin, (req, res) => {
-  res.render('admin/course/add-quiz');
+  res.render('admin/course/add-quiz', {admin: req.user});
 });
 
 router.post('/add-quiz', ensureAuthenticated, ensureAdmin, async (req, res) => {

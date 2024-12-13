@@ -29,13 +29,13 @@ module.exports = function(passport) {
           const user = await User.findOne({ username });
 
           if (!user) {
-            return done(null, false, { message: 'No user found' });
+            return done(null, false, { message: 'משתמש לא קיים במערכת' });
           }
 
           // Check if password matches
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch) {
-            return done(null, false, { message: 'Incorrect password' });
+            return done(null, false, { message: 'סיסמא שגויה' });
           }
 
           // Successfully authenticated user

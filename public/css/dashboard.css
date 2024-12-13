@@ -1,0 +1,87 @@
+.body {
+    padding: 20px;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+.mainTitle {
+    font-size: 42px;
+    font-weight: 1000;
+    margin: 0;
+    color: rgb(0, 0, 0);
+}
+
+.button {
+    font-family: var(--font-family);
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    font-family: var(--font-family);
+    border: 0;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.userBox {
+    width: 40%;
+    min-height: 40px;
+    background-color: var(--color-grey);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    list-style-type: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.userName {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.search {
+    direction: rtl;
+    width: 30%;
+    border: 1px solid var(--color-grey);
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: 15px;
+}
+
+.dashBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    min-height: 300px;
+}
+
+.dashItem {
+    height: 200px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: var(--color-primary);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.dashTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}

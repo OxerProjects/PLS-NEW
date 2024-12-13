@@ -1,50 +1,47 @@
-<h1>Admin Dashboard</h1>
-<p>Welcome, <%= admin.username %>!</p>
-<a href="/logout">Logout</a>
+<link rel="stylesheet" href="/css/dashboard.css" >
 
-<h2>Manage Users</h2>
-<a href="/admin/add-user">Add New User</a>
-
-<ul>
-  <% users.forEach(user => { %>
-    <li>
-      <form action="/admin/edit-user/<%= user._id %>" method="POST">
-        <input type="text" name="username" value="<%= user.username %>" required>
-        <button type="submit">Edit</button>
-      </form>
-      <form action="/admin/delete-user/<%= user._id %>" method="POST" style="display: inline;">
-        <button type="submit">Delete</button>
-      </form>
-    </li>
-  <% }); %>
-</ul>
-
-<h2>Manage Courses</h2>
-<h3>Courses</h3>
-<a href="/admin/add-course">Add Course</a>
+<div class="body">
+  <h1 class="mainTitle">מסך מנהל</h1>
+  <h2>ניהול משתמשים:</h2>
+  <div>
+    <a class="button" href="/admin/add-user">+ הוסף משתמש</a>
+    <input class="search" type="text" placeholder="חפש משתמש...">
+  </div>
   <ul>
-    <% courses.forEach(cours => { %>
-      <li>
-        <a><%= cours.title %></a>
-      </li>
-    <% }); %>
-  </ul>
-<h3>Lessons</h3>
-<a href="/admin/add-lesson">Add Lesson</a>
-  <ul>
-    <% lessons.forEach(lesson => { %>
-      <li>
-        <a><%= lesson.title %></a>
-      </li>
-    <% }); %>
-  </ul>
-<h3>Quizs</h3>
-<a href="/admin/add-quiz">Add Quiz</a>
-  <ul>
-    <% quizs.forEach(quiz => { %>
-      <li>
-        <a><%= quiz.quizText %></a>
+    <% users.forEach(user => { %>
+      <li class="userBox">
+        <a class="userName"><%= user.username %></a>
+        <img class="next" src="/images/next.svg">
       </li>
     <% }); %>
   </ul>
 
+  <h2>ניהול קורסים:</h2>
+  <h3>קורסים</h3>
+  <a class="button" href="/admin/add-course">+ הוסף קורס</a>
+    <div class="dashBox">
+      <% courses.forEach(cours => { %>
+        <div class="dashItem">
+          <a class="dashTitle"><%= cours.title %></a>
+        </div>
+      <% }); %>
+    </div>
+  <h3>לומדות</h3>
+  <a class="button" href="/admin/add-lesson">+ הוסף שיעור</a>
+    <div class="dashBox">
+      <% lessons.forEach(lesson => { %>
+        <div class="dashItem">
+          <a class="dashTitle"><%= lesson.title %></a>
+        </div>
+      <% }); %>
+    </div>
+  <h3>שאלונים</h3>
+  <a class="button" href="/admin/add-quiz">+ הוסף שאלון</a>
+    <div class="dashBox">
+      <% quizs.forEach(quiz => { %>
+        <div class="dashItem">
+          <a class="dashTitle"><%= quiz.quizText %></a>
+        </div>
+      <% }); %>
+      </div>
+</div>

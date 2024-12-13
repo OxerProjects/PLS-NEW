@@ -1,75 +1,47 @@
-body {
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.Box {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 33px);
-    width: 100%;
+.body {
+    padding: 20px;
+    box-sizing: border-box;
+    direction: rtl;
+    height: calc(100vh - 133px);
 }
 
 .mainTitle {
     font-size: 42px;
+    font-weight: 1000;
     margin: 0;
-    margin-top: 30px;
+    color: rgb(0, 0, 0);
 }
 
-.loginBox {
-    height: 500px;
-    max-width: 422px;
+.Box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    min-height: 400px;
 }
 
-.input {
-    direction: rtl;
-    width: 90%;
-    height: 53px;
-    background-color: #EBEBEB;
-    border: 0;
-    border-radius: 8px;
-    margin-bottom: 35px;
+.Item {
+    height: 400px;
+    width: 300px;
+    border-radius: 15px;
+    border: 2px solid var(--color-grey);
+
+    margin-left: 15px;
     padding: 15px;
     box-sizing: border-box;
-    font-family: var(--font-family);
-    font-size: 20px;
-}
-
-.submit {
-    width: 90%;
-    height: 50px;
-    font-family: var(--font-family);
-    border-radius: 8px;
-    background-color: var(--color-primary);
-    font-family: var(--font-family);
-    border: 0;
-    color: white;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.line {
-    width: 15px;
-    height: 3px;
-    background-color: var(--color-primary);
-    margin: auto;
-}
-
-.des {
-    margin: 0;
-    margin-bottom: 35px;
-}
-
-.submit:hover {
     cursor: pointer;
+    text-align: center;
 }
 
-.forgot {
-    direction: rtl;
-    text-decoration: underline;
-    color: rgb(0, 128, 255);
+.Title {
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.Image {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 70px;
 }

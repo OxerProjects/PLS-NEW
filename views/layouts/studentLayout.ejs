@@ -9,10 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PedicareLearningSystem</title>
-    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="/css/generalAdmin.css" >
 </head>
 <header>
-    <img class="logo" src="/images/logo.svg" onclick="window.location.href='/'">
+    <img class="Logo" src="/images/logo.svg" onclick="window.location.href='/admin/home'">
+    <p class="acount">שלום, <%= user.username %>! <img class="logoutButton" src="/images/logout.svg" onclick="window.location.href='/logout'"></p>
 </header>
 <body>
     <%- body %>   
